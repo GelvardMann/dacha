@@ -33,6 +33,16 @@ class ResendVerificationEmailForm extends Model
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Эл. почта',
+        ];
+    }
+
+    /**
      * Sends confirmation email to user
      *
      * @return bool whether the email was sent
