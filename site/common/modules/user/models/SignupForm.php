@@ -33,7 +33,7 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => '\common\modules\user\models\User', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
-            ['password', 'string', 'min' => 12],
+            ['password', 'string', 'min' => 6],
         ];
     }
 
@@ -76,4 +76,6 @@ class SignupForm extends Model
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();
     }
+
+
 }
