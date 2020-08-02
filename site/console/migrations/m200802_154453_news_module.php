@@ -35,7 +35,7 @@ class m200802_154453_news_module extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('news', [
+        $this->createTable('{{%news}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'body' => $this->string()->notNull(),
