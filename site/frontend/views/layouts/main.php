@@ -44,14 +44,11 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Регистрация', 'url' => ['/user/signup']];
         $menuItems[] = ['label' => 'Вход', 'url' => ['/user/login']];
     } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/user/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
+        $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['product/index'],
+            'items' => [
+                ['label' => 'Личный кабинет', 'url' => ['/user/profile']],
+                ['label' => 'Выйти', 'url' => ['/user/logout'], 'linkOptions' => ['data-method' => 'post']],
+            ]];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
